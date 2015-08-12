@@ -1,0 +1,15 @@
+sudo: false
+git:
+  depth: 2
+branches:
+  except: /^v\d/
+language: node_js
+node_js:
+  - iojs
+  - node
+after_script:
+  - npm install coveralls
+  - npm run-script coverage
+  - cat ./coverage/lcov.info | node node_modules/.bin/coveralls
+notifications:
+  email: false
