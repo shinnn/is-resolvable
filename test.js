@@ -1,9 +1,9 @@
-'use strict';
+'use strong';
 
-var isResolvable = require('./');
-var test = require('tape');
+const isResolvable = require('.');
+const test = require('tape');
 
-test('isResolvable()', function(t) {
+test('isResolvable()', t => {
   t.plan(12);
 
   t.equal(isResolvable.name, 'isResolvable', 'should have a function name.');
@@ -35,7 +35,7 @@ test('isResolvable()', function(t) {
   );
 
   t.strictEqual(
-    isResolvable('./'),
+    isResolvable('.'),
     true,
     'should regard a parent directory path of index.js as resolvable.'
   );
@@ -59,13 +59,13 @@ test('isResolvable()', function(t) {
   );
 
   t.throws(
-    isResolvable.bind(null, ['./test.js']),
+    () => isResolvable(['./test.js']),
     /TypeError.*is not a string/,
     'should throw a type error when it takes a non-string argument.'
   );
 
   t.throws(
-    isResolvable.bind(null),
+    () => isResolvable(),
     /TypeError.*is not a string/,
     'should throw a type error when it takes no arguments.'
   );
