@@ -1,12 +1,14 @@
 'use strict';
 
+var util = require('util');
+
 var tryit = require('tryit');
 
 module.exports = function isResolvable(moduleId) {
   if (typeof moduleId !== 'string') {
     throw new TypeError(
-      moduleId +
-      ' is not a string. A module identifier to be checked if resolvable is required.'
+      util.inspect(moduleId) +
+      ' is not a string. Expected a valid Node module identifier, for example `eslint`, `./index.js`, `./lib`.'
     );
   }
 

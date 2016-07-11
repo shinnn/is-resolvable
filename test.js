@@ -60,13 +60,13 @@ test('isResolvable()', t => {
 
   t.throws(
     () => isResolvable(['./test.js']),
-    /TypeError.*is not a string/,
+    /^TypeError.*\[ '\.\/test.js' \] is not a string\. /,
     'should throw a type error when it takes a non-string argument.'
   );
 
   t.throws(
     () => isResolvable(),
-    /TypeError.*is not a string/,
+    /^TypeError.* Expected a valid Node module identifier, for example `eslint`, `\.\/index\.js`, `\.\/lib`\./,
     'should throw a type error when it takes no arguments.'
   );
 });
