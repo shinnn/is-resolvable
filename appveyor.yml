@@ -2,8 +2,8 @@ shallow_clone: true
 version: '{build}'
 skip_tags: true
 install:
-  - ps: Install-Product node 4
+  - ps: Install-Product node Stable
+  - npm uninstall @shinnn/eslint-config-node-legacy eslint istanbul
   - npm install
 build: off
-test_script: node test.js
-cache: node_modules
+test_script: node --strong_mode --throw-deprecation --track-heap-objects test.js
