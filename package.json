@@ -6,8 +6,8 @@
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
     "pretest": "eslint --config @shinnn/node-legacy index.js test.js",
-    "test": "node --strong_mode --throw-deprecation --track-heap-objects test.js",
-    "coverage": "node --strong_mode node_modules/.bin/istanbul cover --print=both test.js"
+    "test": "node --throw-deprecation --track-heap-objects test.js",
+    "coverage": "istanbul cover --print=both test.js"
   },
   "license": "MIT",
   "files": [
