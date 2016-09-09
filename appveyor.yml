@@ -3,7 +3,6 @@ version: '{build}'
 skip_tags: true
 install:
   - ps: Install-Product node Stable
-  - npm uninstall --save-dev @shinnn/eslint-config-node-legacy eslint istanbul
   - npm install
 build: off
-test_script: node --strong_mode --throw-deprecation --track-heap-objects test.js
+test_script: node --throw-deprecation --track-heap-objects test.js
