@@ -5,7 +5,7 @@
   "repository": "shinnn/is-resolvable",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --fix --config @shinnn/node-legacy index.js test.js",
+    "pretest": "eslint --fix --format=codeframe index.js test.js",
     "test": "node --throw-deprecation --track-heap-objects test.js",
     "coverage": "istanbul cover --print=both test.js"
   },
@@ -26,8 +26,11 @@
   },
   "devDependencies": {
     "@shinnn/eslint-config-node-legacy": "^3.0.0",
-    "eslint": "^3.4.0",
+    "eslint": "^3.11.1",
     "istanbul": "^0.4.5",
-    "tape": "^4.6.0"
+    "tape": "^4.6.3"
+  },
+  "eslintConfig": {
+    "extends": "@shinnn/node-legacy"
   }
 }

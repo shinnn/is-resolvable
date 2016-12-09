@@ -60,7 +60,7 @@ test('isResolvable()', t => {
 
   t.throws(
     () => isResolvable(['./test.js']),
-    /^TypeError.*\[ '\.\/test.js' \] is not a string\. /,
+    /^TypeError.*\[ '\.\/test\.js' ] is not a string\. /,
     'should throw a type error when it takes a non-string argument.'
   );
 
