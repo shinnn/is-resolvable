@@ -22,12 +22,15 @@
     "module"
   ],
   "devDependencies": {
-    "@shinnn/eslint-config-node-legacy": "^3.0.0",
-    "eslint": "^3.11.1",
+    "@shinnn/eslint-config-node": "^4.0.2",
+    "eslint": "^4.11.0",
     "istanbul": "^0.4.5",
-    "tape": "^4.6.3"
+    "tape": "^4.8.0"
   },
   "eslintConfig": {
-    "extends": "@shinnn/node-legacy"
+    "extends": "@shinnn/node",
+    "rules": {
+      "no-var": "off"
+    }
   }
 }
