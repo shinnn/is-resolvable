@@ -21,9 +21,6 @@
     "check",
     "module"
   ],
-  "dependencies": {
-    "tryit": "^1.0.1"
-  },
   "devDependencies": {
     "@shinnn/eslint-config-node-legacy": "^3.0.0",
     "eslint": "^3.11.1",
