@@ -1,13 +1,11 @@
 # is-resolvable
 
-[![NPM version](https://img.shields.io/npm/v/is-resolvable.svg)](https://www.npmjs.com/package/is-resolvable)
+[![npm version](https://img.shields.io/npm/v/is-resolvable.svg)](https://www.npmjs.com/package/is-resolvable)
 [![Build Status](https://travis-ci.org/shinnn/is-resolvable.svg?branch=master)](https://travis-ci.org/shinnn/is-resolvable)
 [![Build status](https://ci.appveyor.com/api/projects/status/ww1cdpignehlasbs?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/is-resolvable)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/is-resolvable.svg)](https://coveralls.io/r/shinnn/is-resolvable)
-[![Dependency Status](https://david-dm.org/shinnn/is-resolvable.svg)](https://david-dm.org/shinnn/is-resolvable)
-[![devDependency Status](https://david-dm.org/shinnn/is-resolvable/dev-status.svg)](https://david-dm.org/shinnn/is-resolvable#info=devDependencies)
 
-A [Node](https://nodejs.org/) module to check if a module ID is resolvable with [`require()`](https://nodejs.org/api/globals.html#globals_require)
+A [Node.js](https://nodejs.org/) module to check if a given module ID is resolvable with [`require()`](https://nodejs.org/api/globals.html#globals_require)
 
 ```javascript
 const isResolvable = require('is-resolvable');
@@ -23,7 +21,7 @@ isResolvable('.') //=> true
 
 ## Installation
 
-[Use npm.](https://docs.npmjs.com/cli/install)
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
 ```
 npm install is-resolvable
@@ -37,8 +35,8 @@ const isResolvable = require('is-resolvable');
 
 ### isResolvable(*moduleId*)
 
-*moduleId*: `String` (module ID)  
-Return: `Boolean`
+*moduleId*: `string` (module ID)  
+Return: `boolean`
 
 It returns `true` if `require()` can load a file form a given module ID, otherwise `false`.
 
@@ -51,18 +49,15 @@ isResolvable('./foo'); //=> true
 
 isResolvable('./foo.js'); //=> false
 
+// When `eslint` module is installed but `jshint` isn't
+isResolvable('eslint'); //=> true
+isResolvable('jshint'); //=> false
 
-// When `lodash` module is installed but `underscore` isn't
-isResolvable('lodash'); //=> true
-isResolvable('underscore'); //=> false
-
-// When `readable-stream` module is installed
-isResolvable('readable-stream/readable'); //=> true
-isResolvable('readable-stream/writable'); //=> true
+// When `lodash` module is installed
+isResolvable('lodash/isObject'); //=> true
+isResolvable('lodash/fp/reject.js'); //=> true
 ```
 
 ## License
 
-Copyright (c) 2014 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
-
-Licensed under [the MIT License](./LICENSE).
+[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
