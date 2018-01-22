@@ -1,5 +1,7 @@
 'use strict';
 
+const {join} = require('path');
+
 const isResolvable = require('.');
 const test = require('tape');
 
@@ -43,7 +45,7 @@ test('isResolvable()', t => {
 	);
 
 	t.equal(
-		isResolvable('./index.json'),
+		isResolvable('../test.js'),
 		false,
 		'should regard a relative path where no file exists as unresolvable.'
 	);
@@ -52,6 +54,12 @@ test('isResolvable()', t => {
 		isResolvable('node_modules'),
 		false,
 		'should regard a directory path that doesn\'t have index.js as unresolvable.'
+	);
+
+	t.equal(
+		isResolvable('../test.js', {paths: [join(__dirname, 'node_modules')]}),
+		true,
+		'should support `paths` option.'
 	);
 
 	t.throws(
