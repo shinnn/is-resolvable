@@ -4,12 +4,11 @@
 	"description": "Check if a module ID is resolvable with require()",
 	"repository": "shinnn/is-resolvable",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
-	"scripts": {
-		"pretest": "eslint --fix --format=codeframe index.js test.js",
-		"test": "node --throw-deprecation --track-heap-objects test.js",
-		"coverage": "istanbul cover --print=both test.js"
-	},
 	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "nyc node test.js"
+	},
 	"files": [
 		"index.js"
 	],
@@ -22,16 +21,20 @@
 		"module"
 	],
 	"devDependencies": {
-		"@shinnn/eslint-config-node": "^5.0.0",
-		"eslint": "^4.16.0",
-		"istanbul": "^0.4.5",
-		"tape": "^4.8.0"
+		"@shinnn/eslint-config": "^6.8.0",
+		"eslint": "^5.8.0",
+		"nyc": "^13.1.0",
+		"nyc-config-common": "^1.0.1",
+		"tape": "^4.9.1"
 	},
 	"eslintConfig": {
-		"extends": "@shinnn/node",
+		"extends": "@shinnn",
 		"rules": {
 			"no-var": "off",
 			"prefer-template": "off"
 		}
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
 	}
 }
